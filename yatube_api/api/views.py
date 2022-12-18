@@ -7,7 +7,10 @@ from rest_framework.filters import SearchFilter
 from rest_framework.pagination import LimitOffsetPagination
 
 from .permissions import IsAuthorOrReadOnly
-from .serializers import CommentSerializer, GroupSerializer, PostSerializer, FollowSerializer
+from .serializers import (CommentSerializer,
+                          GroupSerializer,
+                          PostSerializer,
+                          FollowSerializer)
 
 
 class GroupViewSet(ReadOnlyModelViewSet):
@@ -37,6 +40,7 @@ class CommentViewSet(ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user, post=self.get_post())
+
 
 class FollowViewSet(CreateModelMixin, ReadOnlyModelViewSet):
     serializer_class = FollowSerializer
