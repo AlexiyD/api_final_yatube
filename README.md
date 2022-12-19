@@ -1,5 +1,5 @@
 # Проект «API для Yatube»
-
+API для Yatube - Позволяет делать запросы к моделям проекта.
 
 ## Как запустить проект:
 
@@ -22,3 +22,7 @@ https://github.com/AlexiyD/api_final_yatube
 
 ### Запустить проект:
 * python manage.py runserver
+
+## Примеры:
+
+Полная документация доступна по адресу: http://localhost:8000/redoc/
