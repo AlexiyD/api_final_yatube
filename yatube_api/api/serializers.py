@@ -29,7 +29,8 @@ class PostSerializer(ModelSerializer):
 
     class Meta:
         model = Post
-        fields = fields = '__all__'
+        fields = '__all__'
+               
 
 
 class FollowSerializer(ModelSerializer):
