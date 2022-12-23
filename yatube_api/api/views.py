@@ -4,7 +4,7 @@ from rest_framework.viewsets import (ModelViewSet,
                                      ReadOnlyModelViewSet,
                                      GenericViewSet)
 from rest_framework.permissions import IsAuthenticated
-                                        
+
 from rest_framework.mixins import CreateModelMixin, ListModelMixin
 from rest_framework.filters import SearchFilter
 from rest_framework.pagination import LimitOffsetPagination
