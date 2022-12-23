@@ -3,8 +3,8 @@ from posts.models import Group, Post
 from rest_framework.viewsets import (ModelViewSet,
                                      ReadOnlyModelViewSet,
                                      GenericViewSet)
-from rest_framework.permissions import (IsAuthenticated,
-                                        IsAuthenticatedOrReadOnly)
+from rest_framework.permissions import IsAuthenticated
+                                        
 from rest_framework.mixins import CreateModelMixin, ListModelMixin
 from rest_framework.filters import SearchFilter
 from rest_framework.pagination import LimitOffsetPagination
@@ -24,7 +24,7 @@ class GroupViewSet(ReadOnlyModelViewSet):
 class PostViewSet(ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly, IsAuthorOrReadOnly]
+    permission_classes = [IsAuthorOrReadOnly]
     pagination_class = LimitOffsetPagination
 
     def perform_create(self, serializer):
@@ -33,7 +33,7 @@ class PostViewSet(ModelViewSet):
 
 class CommentViewSet(ModelViewSet):
     serializer_class = CommentSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly, IsAuthorOrReadOnly]
+    permission_classes = [IsAuthorOrReadOnly]
 
     def get_post(self):
         return get_object_or_404(Post, pk=self.kwargs.get('post_id'))
